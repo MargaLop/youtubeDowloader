@@ -1,0 +1,25 @@
+{
+  "name": "youtubedowloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MargaLop/youtubeDowloader.git"
+  },
+  "author": "Robb y Marga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MargaLop/youtubeDowloader/issues"
+  },
+  "homepage": "https://github.com/MargaLop/youtubeDowloader#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "ytdl": "^1.4.1"
+  }
+}
