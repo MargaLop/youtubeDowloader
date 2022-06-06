@@ -1,45 +1,30 @@
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 const express = require('express');
-var ffmpeg = require('fluent-ffmpeg');
 
 
-  const app = express()
-  const port = 3000
-  var respuesta = {}
-  
-  function dowloadYt()
-  {
-
-    ytdl('http://www.youtube.com/watch?v=aqz-KE-bpKQ')
+const app = express()
+const port = 3000
+async function downloadVideo(parametro)
+{
+    await ytdl('http://www.youtube.com/watch?v='+ parametro)
         .pipe(fs.createWriteStream('video.mp4')); 
-    
 
+}
+app.get('/video/:parametro', (req, res) =>
+{
+    let parametro = req.params.parametro
 
-        ffmpeg.ffprobe('video.mp4',function(err, metadata) 
-        {
-            console.log(metadata);
-            return metadata
-        });
-        
-  }
-  
-  
-  app.get('/', (req, res) =>
-  {
-    
-    ytdl('http://www.youtube.com/watch?v=aqz-KE-bpKQ')
-        .pipe(fs.createWriteStream('video.mp4')); 
-    
+    downloadVideo(parametro)
+   
     setTimeout(() => 
     {
         res.download(__dirname+'\\video.mp4')
     }, 2000);
+    console.log(parametro)     
+});
 
-    
-  })
-  
-  app.listen(port, () =>
-  {
-    console.log(`Example app listening on port ${port}`)
-  })
+app.listen(port, () =>
+{
+  console.log(`Example app listening on port ${port}`)
+})
