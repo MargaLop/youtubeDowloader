@@ -2,6 +2,7 @@ body{
     /*background-color: #655580;*/
     background-image: url("https://i.pinimg.com/originals/f1/0f/4e/f10f4eecbafe16d7a2b50a8e06d121f8.gif");
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 h1{
@@ -16,7 +17,6 @@ h1{
     border: 0;
     padding: 20%;
     margin-left: 13%;
-    margin-top: 3%;
     
 }
 
