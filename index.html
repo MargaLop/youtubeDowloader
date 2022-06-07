@@ -19,7 +19,8 @@
             <script>
                 
                 function getVideo(){
-                    var link = "https://www.youtube.com/embed/" + document.getElementById("cajaTexto").value;
+                    var parmLink = document.getElementById("cajaTexto").value.split('=') [1]
+                    var link = "https://www.youtube.com/embed/" + parmLink;
                     document.getElementById("myFrame").src = link
                     
                 }

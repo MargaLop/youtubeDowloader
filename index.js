@@ -5,23 +5,15 @@ const express = require('express');
 
 const app = express()
 const port = 3000
-async function downloadVideo(parametro)
-{
-    await ytdl('http://www.youtube.com/watch?v='+ parametro)
-        .pipe(fs.createWriteStream('video.mp4')); 
 
-}
+
 app.get('/video/:parametro', (req, res) =>
 {
     let parametro = req.params.parametro
+    ytdl('http://www.youtube.com/watch?v='+ parametro)
+        .on('finish', function(){ res.download(__dirname+'\\video.mp4')})
+        .pipe(fs.createWriteStream(parametro +'.mp4')); 
 
-    downloadVideo(parametro)
-   
-    setTimeout(() => 
-    {
-        res.download(__dirname+'\\video.mp4')
-    }, 2000);
-    console.log(parametro)     
 });
 
 app.listen(port, () =>
