@@ -1,6 +1,7 @@
 body{
     /*background-color: #655580;*/
     background-image: url("https://i.pinimg.com/originals/f1/0f/4e/f10f4eecbafe16d7a2b50a8e06d121f8.gif");
+    background-color: rgb(17, 17, 17);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -12,12 +13,22 @@ h1{
 }
 
 .barrBusqueda{
+    position: absolute;
     margin: auto;
-    width: 50%;
+    width: 75%;
     border: 0;
     padding: 20%;
-    margin-left: 13%;
-    
+    left: 5%;
+    top:30%;
+}
+
+.video{
+    opacity: 100%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+
 }
 
 input {
@@ -28,10 +39,11 @@ input {
     padding: 10px;
     float: left;
     font-size: 16px;
+    color: black;
 }
 
 
-.addBtn {
+.Btn {
     padding: 7px;
     width: 15%;
     background: #ff0000;
@@ -40,11 +52,12 @@ input {
     text-align: center;
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 10px;
   }
 
-  .addBtn:hover{
-      background-color: #860000;
+  .Btn:hover{
+      background-color: #550000;
   }
