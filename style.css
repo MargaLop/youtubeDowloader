@@ -23,7 +23,9 @@ h1{
 
     -webkit-animation-name: bajaBarra;
     -webkit-animation-duration: 1s;
-    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: initial;
+
+    animation-play-state: paused;
 
 }
 @-webkit-keyframes bajaBarra{
@@ -44,7 +46,9 @@ h1{
     
     -webkit-animation-name: mueveVideo;
     -webkit-animation-duration: 1s;
-    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: initial;
+
+    animation-play-state: paused;
 }
 
 @-webkit-keyframes mueveVideo{
