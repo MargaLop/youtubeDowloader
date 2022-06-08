@@ -16,11 +16,15 @@
                 <input type="text" id="cajaTexto" name="cajaTexto" placeholder="Introduce tu URL...">
                 <button type="button" onclick="functions()" class="Btn">ENTER</button>
             </div>
+            <div id="botonDescarga" class ="botonDescarga paused">
+                <button type="button" onclick="descarga()" class="Dwnld">DESCARGAR</button>
+            </div>
             <script>
                 
                 function getVideo(){
                     var parmLink = document.getElementById("cajaTexto").value.split('=') [1]
                     var link = "https://www.youtube.com/embed/" + parmLink;
+                    //var link = document.getElementById("cajaTexto").value;
                     document.getElementById("myFrame").src = link
                 }
                 
@@ -29,15 +33,22 @@
                     barrBusqueda.classList.toggle('running');
                     barrBusqueda.classList.toggle('paused');
 
-                    var barrBusqueda = document.getElementById("video");
+                    var video = document.getElementById("video");
                     video.classList.toggle('running');
                     video.classList.toggle('paused');
+
+                    var BD = document.getElementById("botonDescarga");
+                    BD.classList.toggle('running');
+                    BD.classList.toggle('paused');
                 }
 
                 function functions(){
-                    anim();
                     getVideo();
-                
+                    anim();
+                }
+
+                function descarga(){
+                    window.open("https://www.youtube.com/watch?v=DLzxrzFCyOs&ab_channel=AllKindsOfStuff");
                 }
             </script>
         </body>
