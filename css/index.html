@@ -8,11 +8,11 @@
         <body>
             <link class="style" rel="stylesheet" type="text/css" href="style.css" media="screen"/>
             <h1>AMOGUS DOWNLOADS</h1>
-            <div class="video">
+            <div id="video" class="video paused">
                 <iframe id="myFrame" width="420" height="315">
                 </iframe>
             </div>
-            <div class="barrBusqueda">
+            <div id="barrBusqueda" class="barrBusqueda paused">
                 <input type="text" id="cajaTexto" name="cajaTexto" placeholder="Introduce tu URL...">
                 <button type="button" onclick="functions()" class="Btn">ENTER</button>
             </div>
@@ -24,13 +24,20 @@
                     document.getElementById("myFrame").src = link
                 }
                 
-                function anim(){
-                    document.getElementsByClassName('barrBusqueda')
+                function anim() {
+                    var barrBusqueda = document.getElementById("barrBusqueda");
+                    barrBusqueda.classList.toggle('running');
+                    barrBusqueda.classList.toggle('paused');
+
+                    var barrBusqueda = document.getElementById("video");
+                    video.classList.toggle('running');
+                    video.classList.toggle('paused');
                 }
 
                 function functions(){
-                    getVideo();
                     anim();
+                    getVideo();
+                
                 }
             </script>
         </body>
