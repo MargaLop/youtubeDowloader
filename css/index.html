@@ -54,7 +54,19 @@
                 }
 
                 function descarga(){
-                    window.open("https://www.youtube.com/watch?v=DLzxrzFCyOs&ab_channel=AllKindsOfStuff");
+                    //window.open("https://www.youtube.com/watch?v=DLzxrzFCyOs&ab_channel=AllKindsOfStuff");
+                    var URL = this.window.URL || this.window.webkitURL;
+                    var file = new Blob(
+                        [document.getElementById("cajaTexto").value],
+                        {"type" : "video\/mp4"});
+                        const link = document.createElement("a");
+                    var name = 'file.mp4';                  
+
+
+                      link.href = URL.createObjectURL(file);
+                      link.download = name;
+                      link.click();
+                      URL.revokeObjectURL(link.href)
                 }
 
                 
