@@ -21,6 +21,7 @@
             </div>
             <script>
                 
+
                 function getVideo(){
                     var parmLink = document.getElementById("cajaTexto").value.split('=') [1]
                     var link = "https://www.youtube.com/embed/" + parmLink;
@@ -30,25 +31,33 @@
                 function anim() {
                     var barrBusqueda = document.getElementById("barrBusqueda");
                     barrBusqueda.classList.toggle('running');
-                    barrBusqueda.classList.toggle('paused');
+                    //barrBusqueda.classList.toggle('paused');
 
                     var video = document.getElementById("video");
                     video.classList.toggle('running');
-                    video.classList.toggle('paused');
+                    //video.classList.toggle('paused');
 
                     var BD = document.getElementById("botonDescarga");
                     BD.classList.toggle('running');
-                    BD.classList.toggle('paused');
+                    //BD.classList.toggle('paused');
                 }
-
+                var cont = 0;
                 function functions(){
+                    
+                    cont++;
                     getVideo();
-                    anim();
+                    if(cont <= 1){
+                        anim();
+                    }
+                    
+                    console.log(cont);
                 }
 
                 function descarga(){
                     window.open("https://www.youtube.com/watch?v=DLzxrzFCyOs&ab_channel=AllKindsOfStuff");
                 }
+
+                
             </script>
         </body>
     </head>    
