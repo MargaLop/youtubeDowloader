@@ -1,6 +1,7 @@
+
+
 body{
-    /*background-color: #655580;*/
-    background: url(../img/bg.gif) no-repeat center center fixed;
+    background: url(../img/logo.png) no-repeat center center fixed;
     background-color: rgb(17, 17, 17);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -14,7 +15,7 @@ h1{
 }
 
 .barrBusqueda {
-    position: absolute;
+    position: relative;
     margin: auto;
     width: 75%;
     border: 0;
@@ -40,24 +41,30 @@ h1{
 
 @-webkit-keyframes bajaBarra{
     from{
-        -webkit-transform:  translate(0px, 0px);
+        -webkit-transform:  translate(0px, -400px);
     }
     to{
-        -webkit-transform:  translate(0px, 180px);
+        -webkit-transform:  translate(0px, -120px);
     }
 }
 
 .video{
     opacity: 100%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 0;
-    left: 0; 
-    
+    position: relative;
+
+
     -webkit-animation-name: mueveVideo;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: initial;
 
+}
+
+.myFrame{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
 }
 
 .video.paused {
@@ -71,14 +78,16 @@ h1{
 
 @-webkit-keyframes mueveVideo{
     from{
-        -webkit-transform:  translate(-100%, 60%);
+        -webkit-transform:  translateX(-100%);
         opacity: 0%;
     }
     to{
-        -webkit-transform:  translate(100%, 60%);
+        justify-content: center;
+        -webkit-transform: translateX(15%)  ;
         opacity: 100%;
     }
 }
+
 
 
 input {
@@ -90,6 +99,7 @@ input {
     float: left;
     font-size: 16px;
     color: black;
+    position: relative;
 }
 
 
@@ -106,6 +116,7 @@ input {
     cursor: pointer;
     transition: 0.3s;
     border-radius: 10px;
+    position: relative;
   }
 
   .Btn:hover{
@@ -115,7 +126,7 @@ input {
   .botonDescarga {
     position: absolute;
     margin-left: 45%;
-    margin-top: 28%;
+    margin-top: -38%;
 
     -webkit-animation-name: apareceBoton;
     -webkit-animation-duration: 2s;
