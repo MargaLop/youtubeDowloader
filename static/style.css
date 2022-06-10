@@ -1,5 +1,5 @@
 body {
-    background: url(../img/bg.gif) no-repeat center center fixed;
+    background: url(../static/img/bg.gif) no-repeat center center fixed;
     background-color: rgb(17, 17, 17);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ h1 {
 input {
     border-radius: 10px;
     border: none;
-    color: black;
+    color: rgb(0, 0, 0);
     float: left;
     font-size: 16px;
     margin-right: 10px;
@@ -27,11 +27,11 @@ input {
 
 .barr-busqueda {
     border: 0;
-    left: 5%;
+    left: 30px;
     margin: auto;
     padding: 20%;
     position: relative;
-    top: 20%;
+    top: 0;
     width: 75%;
     -webkit-animation-name: baja-barra;
     -webkit-animation-duration: 1s;
@@ -50,17 +50,14 @@ input {
 
 .video {
     opacity: 100%;
-    position: relative;
+    position: absolute;
     -webkit-animation-name: mueve-video;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: initial;
 }
 
 .my-frame {
-    justify-content: center;
-    left: 50%;
     position: absolute;
-    top: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -82,11 +79,11 @@ input {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-weight: 800;
-    padding: 7px;
-    position: relative;
+    padding: 6px;
+    position: absolute;
     text-align: center;
     transition: 0.3s;
-    width: 15%;
+    width: 10%;
 }
 
 .btn:hover {
@@ -95,8 +92,9 @@ input {
 
 .boton-descarga {
     position: absolute;
-    margin-left: 45%;
-    margin-top: -38%;
+    margin-left: 42%;
+    margin-top: -13%;
+    opacity: 100%;
     -webkit-animation-name: aparece-boton;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: initial;
@@ -124,6 +122,7 @@ input {
     padding: 7px;
     text-align: center;
     transition: 0.3s;
+    opacity: 100%;
 }
 
 .dwnld:hover {
@@ -161,13 +160,13 @@ input {
 
 @-webkit-keyframes mueve-video {
     from {
-        -webkit-transform: translateX(-100%);
+        -webkit-transform: translate(-100%, -150%);
         opacity: 0%;
     }
 
     to {
         justify-content: center;
-        -webkit-transform: translateX(15%);
+        -webkit-transform: translate(80%, -150%);
         opacity: 100%;
     }
 }
@@ -184,11 +183,11 @@ input {
 
 @-webkit-keyframes baja-barra {
     from {
-        -webkit-transform: translate(0px, -400px);
+        -webkit-transform: translateY(-140px);
     }
 
     to {
-        -webkit-transform: translate(0px, -120px);
+        -webkit-transform: translateY(140px);
     }
 }
 
