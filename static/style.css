@@ -1,0 +1,194 @@
+body {
+    background: url(../img/bg.gif) no-repeat center center fixed;
+    background-color: rgb(17, 17, 17);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: rgb(190, 0, 0);
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 72px;
+}
+
+input {
+    border-radius: 10px;
+    border: none;
+    color: black;
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 10px;
+    position: relative;
+    width: 50%;
+}
+
+
+.barr-busqueda {
+    border: 0;
+    left: 5%;
+    margin: auto;
+    padding: 20%;
+    position: relative;
+    top: 20%;
+    width: 75%;
+    -webkit-animation-name: baja-barra;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: initial;
+}
+
+.barr-busqueda.paused {
+    animation-play-state: paused;
+}
+
+.barr-busqueda.running {
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+
+.video {
+    opacity: 100%;
+    position: relative;
+    -webkit-animation-name: mueve-video;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: initial;
+}
+
+.my-frame {
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video.paused {
+    animation-play-state: paused;
+}
+
+.video.running {
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+.btn {
+    background: #ff0000;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    float: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 7px;
+    position: relative;
+    text-align: center;
+    transition: 0.3s;
+    width: 15%;
+}
+
+.btn:hover {
+    background-color: #550000;
+}
+
+.boton-descarga {
+    position: absolute;
+    margin-left: 45%;
+    margin-top: -38%;
+    -webkit-animation-name: aparece-boton;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: initial;
+}
+
+.boton-descarga.paused {
+    animation-play-state: paused;
+}
+
+.boton-descarga.running {
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
+
+.dwnld {
+    background: #ff0000;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    float: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 7px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.dwnld:hover {
+    background-color: #550000;
+}
+
+@media (min-width: 24px) {
+    .main-title {
+        font-size:  12px;
+    }
+}
+
+@media (min-width: 576px) {
+    .main-title {
+        font-size:  24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-title {
+        font-size:  36px;
+    }
+}
+@media (min-width: 992px) {
+    .main-title {
+        font-size:  58px;
+    }
+}
+@media (min-width: 1200px) {
+    .main-title {
+        font-size:  72px;
+    }
+}
+
+
+@-webkit-keyframes mueve-video {
+    from {
+        -webkit-transform: translateX(-100%);
+        opacity: 0%;
+    }
+
+    to {
+        justify-content: center;
+        -webkit-transform: translateX(15%);
+        opacity: 100%;
+    }
+}
+
+@-webkit-keyframes aparece-boton {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+@-webkit-keyframes baja-barra {
+    from {
+        -webkit-transform: translate(0px, -400px);
+    }
+
+    to {
+        -webkit-transform: translate(0px, -120px);
+    }
+}
+

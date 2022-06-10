@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "icon" 
+        href = "../img/logo.png" 
+        type = "image/x-icon">
+        <title>YOUTUBE DOWNLOADER</title>
+        <body>
+            <link class="style" rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+            <h1 class="main-title">LEGAL YOUTUBE DOWNLOADER</h1>
+            <div id="barr-busqueda" class=".barr-busqueda paused">
+                <input type="text" id="caja-texto" name="caja-texto" placeholder="Introduce tu URL...">
+                <button type="button" onclick="functions()" class="btn">ENTER</button>
+            </div>
+            <div id="boton-descarga" class="boton-descarga paused">
+                <button type="button" onclick="descarga()" class="dwnld">DESCARGAR</button>
+            </div>
+            <div id="video" class="video paused">
+                <iframe id="my-frame" width="720" height="480"></iframe>
+            </div>
+            <script src="main.js"></script>
+        </body>
+    </head>    
+
