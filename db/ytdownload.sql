@@ -45,7 +45,7 @@ CREATE TABLE `users` (
   `nombre` varchar(100) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `mail` varchar(255) NOT NULL,
-  `birth_date` datetime NOT NULL,
+  `birth_date` date NOT NULL,
   `user` varchar(45) NOT NULL,
   `salt` varchar(100) NOT NULL,
   `hash` varchar(100) NOT NULL
