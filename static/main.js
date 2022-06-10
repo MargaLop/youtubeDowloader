@@ -7,27 +7,9 @@ function getVideo() {
     var parmLink = document.getElementById("caja-texto").value.split('=')[1]
 
     var link = "https://www.youtube.com/embed/" + parmLink;
-    // document.getElementById("my-frame").src = link
+    document.getElementById("my-frame").src = link
 
-    var dowLink = `/video/${parmLink}`
-
-    // httpGet()
-
-    fetch(dowLink)
-        .then(resp => resp.blob())
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            // the filename you want
-            a.download = `${parmLink}.mp4`;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            alert('your file has downloaded!'); // or you know, something with better UX...
-        })
-        .catch(() => alert('oh no!'));
+    
 }
 
 function anim() {
@@ -59,4 +41,26 @@ function httpGet(theUrl) {
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
+}
+
+function descarga(){
+    var paramLink = document.getElementById("caja-texto").value.split('=')[1]
+    var dowLink = `/video/${paramLink}`
+
+    // httpGet()
+
+    fetch(dowLink)
+        .then(resp => resp.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            // the filename you want
+            a.download = `${paramLink}.mp4`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+
 }
