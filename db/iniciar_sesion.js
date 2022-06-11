@@ -11,32 +11,37 @@ var con = mysql.createConnection({
 
 con.connect(function (err) {
     if (err) throw err;
+    function IncSesion() {
+        var User = {
+            user: 'ramoncito',
+            hash: 'bed6424efd434a84cd5e96172835ffe8cb72632b2e1b',
+        }
 
-    var User = {
-        user: 'ramoncito',
-        hash: 'bed6424efd434a84cd5e96172835ffe8cb72632b2e1b',
+        var queryIns = `SELECT * FROM ytdownload.users
+        WHERE 
+        user =   '${User.user}' and 
+        hash =   '${User.hash}' `;
+
+
+
+        con.query(queryIns, function (err, result, fields) {
+            if (err) throw err;
+            console.log(result)
+
+        });
     }
 
-    var queryIns = `SELECT * FROM ytdownload.users
-  WHERE 
-  user =   '${User.user}' and 
-  hash =   '${User.hash}' `;
+    function getSalt(){
+    var querySalt = `SELECT 
+    salt
+    FROM ytdownload.users
+    WHERE 
+    user ='${User.user}';`;
 
-
-
-    con.query(queryIns, function (err, result, fields) {
-        if (err) throw err;
-        var querySalt = `SELECT 
-      salt
-      FROM ytdownload.users
-      WHERE 
-	  user ='${User.user}';`;
-
-        con.query(querySalt, function (err, result, fields) {
-            if (err) throw err;
-                console.log(result)
-        });
+          con.query(querySalt, function (err, result, fields) {
+              if (err) throw err;
+              console.log(result)
+          });
+    };
     
-  });
-
 });
