@@ -22,12 +22,12 @@ function imprimeUsuarios(result)
     }
 }
 
-
+function registrar (newUser){
 con.connect(function(err) 
 {
   if (err) throw err;
 
-  var newUser = {
+  /*var newUser = {
     nombre: 'ramon',
     apellidos: 'garcia',
     mail: 'ramon@gmail.com' ,
@@ -35,7 +35,7 @@ con.connect(function(err)
     user: 'ramoncito',
     pass: '123456',
     salt: crypto.randomBytes(22).toString("hex")
-  }
+  }*/
 
 
   var queryIns = `
@@ -66,3 +66,7 @@ con.connect(function(err)
   });
 
 });
+}
+
+
+module.exports = { registrar };
