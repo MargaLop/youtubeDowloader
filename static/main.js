@@ -24,6 +24,15 @@ function anim() {
     var BD = document.getElementById("boton-descarga");
     BD.classList.toggle('running');
     //BD.classList.toggle('paused');
+
+    var ND = document.getElementById("navbar");
+    ND.classList.toggle('running');
+    //BD.classList.toggle('paused');
+
+    var TD = document.getElementById("typebar");
+    TD.classList.toggle('running');
+    //BD.classList.toggle('paused');
+
 }
 
 function functions() {
