@@ -38,9 +38,9 @@ app.get("/video/:parametro", (req, res) => {
     })
     .pipe(fs.createWriteStream(linkName));
 });
-app.get("/login", (req, res) => {
-  res.sendFile(`${__dirname}/login/index.html`);
-});
+
+app.use("/login", express.static("login"));
+
 
 app.post("/registro", (req, res) => {
   // var newUser = req.newUser;
