@@ -5,22 +5,27 @@ const express = require("express");
 const path = require("path");
 const crypto = require("crypto");
 const regs = require("./db/registro");
+const { Console } = require("console");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(express.urlencoded({
+  extended: true
+}));
+
 app.use("/", express.static("static"));
 
 app.get("/video/:parametro", (req, res) => {
-  const { parametro } = req.params;
+  const { parametro } = req.body;
   console.log(parametro);
   const linkName = `video_${parametro}.mp4`;
   console.log(linkName);
 
-  const qualityOptions = ["18", "135", "136", "137"];
+  const qualityOptions = ["18", "135", "22", "137"];
 
   const ytdOptions = {
-    filter: (format) => format.container === "mp4",
+    //filter: (format) => format.container === "mp4",
     quality: qualityOptions[3],
   };
 
@@ -43,14 +48,14 @@ app.use("/login", express.static("login"));
 
 
 app.post("/registro", (req, res) => {
-  // var newUser = req.newUser;
+
   const newUser = {
-    nombre: "ramona",
-    apellidos: "pereza",
-    mail: "ramona@gmail.com",
-    birth_date: "1996/07/06",
-    user: "ramoncita",
-    pass: "123456",
+    nombre: req.body.nombre,
+    apellidos: req.body.apellidos,
+    mail: req.body.email,
+    birth_date: req.body.cumple,
+    user: req.body.user,
+    pass: req.body.pass,
     salt: crypto.randomBytes(22).toString("hex"),
   };
 
