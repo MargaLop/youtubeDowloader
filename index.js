@@ -22,7 +22,7 @@ app.get('/video/:parametro', (req, res) =>
     var linkName = 'video_' + parametro +'.mp4';
     console.log(linkName);
     
-    ytdl('http://www.youtube.com/watch?v='+ parametro)
+    ytdl('http://www.youtube.com/watch?v='+ parametro, { filter: format => format.container === 'mp4' }, {quality: 'highest'}) 
         .on('finish', function()
         {
           res.download(__dirname+path.sep +linkName)
