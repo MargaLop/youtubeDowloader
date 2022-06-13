@@ -17,9 +17,11 @@ app.get("/video/:parametro", (req, res) => {
   const linkName = `video_${parametro}.mp4`;
   console.log(linkName);
 
+  const qualityOptions = ["18", "135", "136", "137"];
+
   const ytdOptions = {
     filter: (format) => format.container === "mp4",
-    quality: "highest",
+    quality: qualityOptions[3],
   };
 
   ytdl(`http://www.youtube.com/watch?v=${parametro}`, ytdOptions)
