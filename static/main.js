@@ -21,17 +21,11 @@ function anim() {
     video.classList.toggle('running');
     //video.classList.toggle('paused');
 
-    var BD = document.getElementById("boton-descarga");
+    var BD = document.getElementById("botones");
     BD.classList.toggle('running');
     //BD.classList.toggle('paused');
 
-    var ND = document.getElementById("navbar");
-    ND.classList.toggle('running');
-    //BD.classList.toggle('paused');
 
-    var TD = document.getElementById("typebar");
-    TD.classList.toggle('running');
-    //BD.classList.toggle('paused');
 
 }
 
