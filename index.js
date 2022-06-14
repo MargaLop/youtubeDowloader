@@ -56,6 +56,7 @@ app.post("/loguser", (req, res) => {
   const { user, pass } = req.body;
   console.log(`LOGUSER endpoint: User ${user} -- PASS: ${pass}`);
 
+  // eslint-disable-next-line no-throw-literal
   if (user === undefined || pass === undefined) throw "USER IS EMPTY";
 
   ddbb.login({ user, pass }, res);

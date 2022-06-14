@@ -1,3 +1,4 @@
+const { Console } = require("console");
 const crypto = require("crypto");
 const mysql = require("mysql");
 const envData = require("../.env.json");
@@ -23,7 +24,10 @@ function sha2(string) {
   return crypto.createHash("sha256").update(string).digest("hex");
 }
 
-function registrar({ nombre, apellidos, mail, birth_date, user, pass, salt}, res) {
+function registrar(
+  { nombre, apellidos, mail, birth_date, user, pass, salt },
+  res
+) {
   const con = mysql.createConnection(connConf);
   con.connect((connErr) => {
     if (connErr) throw connErr;
@@ -79,9 +83,9 @@ function login({user, pass}, res) {
       // if user found:
       const {salt, hash} = result.pop();
       if (sha2(pass + salt) === hash) {
-        console.log("SIII, ese ese pass");
+        res.redirect("/#");
       } else {
-        console.log("Pass equivokido");
+        console.log("CONTRASEÑA/USUARIO EQUIVOCADO");
       }
 
       con.end();
