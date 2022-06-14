@@ -4,15 +4,17 @@ const ytdl = require("ytdl-core");
 const express = require("express");
 const path = require("path");
 const crypto = require("crypto");
-const regs = require("./db/registro");
-const { Console } = require("console");
+const ddbb = require("./db/ddbb");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // SERVE static content
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 app.use("/", express.static("static"));
 
@@ -46,22 +48,25 @@ app.get("/video/:parametro", (req, res) => {
     .pipe(fs.createWriteStream(linkName));
 });
 
+// User managment
+
 app.use("/login", express.static("login"));
 
 
 app.post("/registro", (req, res) => {
+  const { nombre, apellidos, email, cumple, user, pass } = req.body;
 
   const newUser = {
-    nombre: req.body.nombre,
-    apellidos: req.body.apellidos,
-    mail: req.body.email,
-    birth_date: req.body.cumple,
-    user: req.body.user,
-    pass: req.body.pass,
+    nombre: nombre,
+    apellidos: apellidos,
+    mail: email,
+    birth_date: cumple,
+    user: user,
+    pass: pass,
     salt: crypto.randomBytes(22).toString("hex"),
   };
 
-  regs.registrar(newUser);
+  ddbb.registrar(newUser, res);
 });
 
 app.listen(port, () => {
