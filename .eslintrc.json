@@ -11,9 +11,11 @@
     },
     "rules": {
         "prettier/prettier": ["warn", {
-            "endOfLine": "auto"
+            "endOfLine": "crlf"
         }],
         "camelcase": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "object-shorthand": "off",
+        "no-console": "off"
       }
 }
