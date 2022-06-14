@@ -12,40 +12,20 @@
                 <input type="text" id="caja-texto" name="caja-texto" placeholder="Introduce tu URL...">
                 <button type="button" onclick="functions()" class="btn">ENTER</button>
             </div>
-            <div id="boton-descarga" class="boton-descarga paused">
-                <button type="button" onclick="descarga()" class="dwnld">DESCARGAR</button>
-            </div>
-            <div id="video" class="video paused">
-                <iframe id="my-frame" width="480" height="360"></iframe>
-            </div>
-
-            <div id="navbar" class="navbar paused">
-                <div class="dropdown">
-                  <button class="dropbtn">CALIDAD 
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="dropdown-content">
-                    <a href="#">360p</a>
-                    <a href="#">480p</a>
-                    <a href="#">720p</a>
-                    <a href="#">1080p</a>
-                  </div>
-                </div>
-                <div id="typebar" class="typebar paused">
-                    <div class="type">
-                        <button class="typebtn">TIPO 
-                          <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="type-content">
-                          <a href="#">MP4</a>
-                          <a href="#">MP3</a>
-                        </div>
-                      </div> 
-                </div>
+            <div id="botones" class="botones paused">
+              <div id="boton-descarga" class="boton-descarga">
+                  <button type="button" onclick="descarga()" class="dwnld">MP4 720p</button>
               </div>
-                
-
-
+              <div id="boton-descarga-360" class="boton-descarga-360">
+                <button type="button" onclick="descarga()" class="dwnld">MP4 360p</button>
+              </div>
+              <div id="boton-descarga-mp3" class="boton-descarga-mp3">
+                <button type="button" onclick="descarga()" class="dwnld">MP3</button>
+              </div>
+            </div>
+              <div id="video" class="video paused">
+                  <iframe id="my-frame" width="480" height="360"></iframe>
+              </div>
             <script src="main.js"></script>
         </body>
     </head>    
