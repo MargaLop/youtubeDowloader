@@ -10,6 +10,8 @@ h1 {
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 72px;
+    position: fixed;
+    left: 25%;
 }
 
 input {
@@ -29,7 +31,7 @@ input {
     left: 30px;
     margin: auto;
     padding: 20%;
-    position: relative;
+    position: fixed;
     top: 0;
     width: 75%;
     -webkit-animation-name: baja-barra;
@@ -49,7 +51,10 @@ input {
 
 .video {
     opacity: 100%;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
     -webkit-animation-name: mueve-video;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: initial;
@@ -87,21 +92,43 @@ input {
     background-color: #ff0000;
 }
 
-.boton-descarga {
-    position: absolute;
-    margin-left: 42%;
-    margin-top: -13%;
-    opacity: 100%;
-    -webkit-animation-name: aparece-boton;
+.botones{
+    margin-left: 100px;
+    -webkit-animation-name: botones;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: initial;
 }
 
-.boton-descarga.paused {
+.boton-descarga {
+    position: fixed;
+    margin-left: 35%;
+    margin-top: 28%;
+    opacity: 100%;
+
+}
+
+.boton-descarga-360 {
+    position: fixed;
+    margin-left: 40%;
+    margin-top: 28%;
+    opacity: 100%;
+
+}
+
+.boton-descarga-mp3 {
+    position: fixed;
+    margin-left: 45%;
+    margin-top: 28%;
+    opacity: 100%;
+    
+
+}
+
+.botones.paused {
     animation-play-state: paused;
 }
 
-.boton-descarga.running {
+.botones.running {
     animation-play-state: running;
     animation-fill-mode: forwards;
 }
@@ -155,18 +182,18 @@ input {
 
 @-webkit-keyframes mueve-video {
     from {
-        -webkit-transform: translate(-100%, -150%);
-        opacity: 0%;
+        -webkit-transform: translate(-1000%, -90%);
+        opacity: 100%;
     }
 
     to {
         justify-content: center;
-        -webkit-transform: translate(80%, -150%);
+        -webkit-transform: translate(-60%, -90%);
         opacity: 100%;
     }
 }
 
-@-webkit-keyframes aparece-boton {
+@-webkit-keyframes botones {
     from {
         opacity: 0%;
     }
@@ -182,141 +209,7 @@ input {
     }
 
     to {
-        -webkit-transform: translateY(140px);
+        -webkit-transform: translateY(230px);
     }
 }
 
-
-
-  .navbar{
-    transform: translate(880px, -550px);
-    -webkit-animation-name: navbar;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-iteration-count: initial;
-  }
-
-  @-webkit-keyframes navbar {
-    from {
-        opacity: 0%;
-    }
-
-    to {
-        opacity: 100%;
-    }
-}
-
-.navbar.paused {
-    animation-play-state: paused;
-}
-
-.navbar.running {
-    animation-play-state: running;
-    animation-fill-mode: forwards;
-}
-
-  .dropdown {
-    
-    background-color: #3d3d3d;
-    float: left;
-    overflow: hidden;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-  
-  .dropdown .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    padding: 14px 18px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-  }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: rgb(134, 0, 0);
-    color: white;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display:block;
-  }
-
-
-  .typebar{
-    transform: translate(-90px, 55px);
-    
-  }
-
-  .type {
-    
-    background-color: #3d3d3d;
-    float: left;
-    overflow: hidden;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-  
-  .type .typebtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    padding: 14px 31px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-  }
-  
-  .type a:hover, .type:hover .typebtn {
-    background-color: red;
-    
-  }
-  
-  .type-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .type-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .type-content a:hover {
-    background-color: rgb(134, 0, 0);
-    color: white;
-  }
-  
-  .type:hover .type-content {
-    display:block;
-  }
