@@ -21,16 +21,16 @@ app.use("/", express.static("static"));
 // Video endpoints
 
 app.get("/video/:parametro", (req, res) => {
-  const { parametro } = req.body;
+  const { parametro } = req.params;
   console.log(parametro);
   const linkName = `video_${parametro}.mp4`;
   console.log(linkName);
 
-  const qualityOptions = ["18", "135", "22", "137"];
+  const qualityOptions = ["18", "22"];
 
   const ytdOptions = {
     // filter: (format) => format.container === "mp4"
-    quality: qualityOptions[3],
+    quality: qualityOptions[1],
   };
 
   ytdl(`http://www.youtube.com/watch?v=${parametro}`, ytdOptions)
