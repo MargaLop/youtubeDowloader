@@ -10,11 +10,13 @@ const { Console } = require("console");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({
+// SERVE static content
   extended: true
 }));
 
 app.use("/", express.static("static"));
+
+// Video endpoints
 
 app.get("/video/:parametro", (req, res) => {
   const { parametro } = req.body;
@@ -25,7 +27,7 @@ app.get("/video/:parametro", (req, res) => {
   const qualityOptions = ["18", "135", "22", "137"];
 
   const ytdOptions = {
-    //filter: (format) => format.container === "mp4",
+    // filter: (format) => format.container === "mp4"
     quality: qualityOptions[3],
   };
 
