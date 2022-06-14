@@ -52,6 +52,14 @@ app.get("/video/:parametro", (req, res) => {
 
 app.use("/login", express.static("login"));
 
+app.post("/loguser", (req, res) => {
+  const { user, pass } = req.body;
+  console.log(`LOGUSER endpoint: User ${user} -- PASS: ${pass}`);
+
+  if (user === undefined || pass === undefined) throw "USER IS EMPTY";
+
+  ddbb.login({ user, pass }, res);
+});
 
 app.post("/registro", (req, res) => {
   const { nombre, apellidos, email, cumple, user, pass } = req.body;
