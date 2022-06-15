@@ -1,4 +1,3 @@
-const { Console } = require("console");
 const crypto = require("crypto");
 const mysql = require("mysql");
 const envData = require("../.env.json");
@@ -8,17 +7,7 @@ const connConf = {
   user: envData.user,
   password: envData.password,
   database: "ytdownload",
-}
-
-function imprimeUsuarios(result) {
-  function imprimeUsuario(u) {
-    console.log(`UsuSaurios: ${u.username} -- ${u.hash}`);
-  }
-
-  for (i in result) {
-    imprimeUsuario(result[i]);
-  }
-}
+};
 
 function sha2(string) {
   return crypto.createHash("sha256").update(string).digest("hex");
@@ -50,19 +39,12 @@ function registrar(
       if (insErr) throw insErr;
       console.log(result);
       con.end();
-      res.redirect('/login');
+      res.redirect("/login");
     });
-
-    // const querySel = "SELECT * FROM ytdownload.users;";
-    // con.query(querySel, (selErr, result, fields) => {
-    //   if (selErr) throw selErr;
-    //   console.log(result);
-    //   imprimeUsuarios(result);
-    // });
   });
 }
 
-function login({user, pass}, res) {
+function login({ user, pass }, res) {
   const con = mysql.createConnection(connConf);
   con.connect((connErr) => {
     if (connErr) throw connErr;
@@ -81,7 +63,7 @@ function login({user, pass}, res) {
       //   res.redirect('/login?s=nouser');
 
       // if user found:
-      const {salt, hash} = result.pop();
+      const { salt, hash } = result.pop();
       if (sha2(pass + salt) === hash) {
         res.redirect("/#");
       } else {
