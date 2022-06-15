@@ -93,7 +93,9 @@ input {
 }
 
 .botones{
-    margin-left: 100px;
+
+    padding-top: 50px;
+    transform: translateX(170px);
     -webkit-animation-name: botones;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: initial;
@@ -101,7 +103,7 @@ input {
 
 .boton-descarga {
     position: fixed;
-    margin-left: 35%;
+    margin-left: 25%;
     margin-top: 28%;
     opacity: 100%;
 
@@ -109,7 +111,7 @@ input {
 
 .boton-descarga-360 {
     position: fixed;
-    margin-left: 40%;
+    margin-left: 33%;
     margin-top: 28%;
     opacity: 100%;
 
@@ -117,7 +119,7 @@ input {
 
 .boton-descarga-mp3 {
     position: fixed;
-    margin-left: 45%;
+    margin-left: 41%;
     margin-top: 28%;
     opacity: 100%;
     
