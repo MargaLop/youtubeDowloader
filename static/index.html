@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel = "icon" 
-        href = "img/logo.png" 
-        type = "image/x-icon">
-        <title>YOUTUBE DOWNLOADER</title>
-        <body>
-            <link class="style" rel="stylesheet" type="text/css" href="style.css" media="screen"/>
-            <h1 class="main-title">LEGAL YOUTUBE DOWNLOADER</h1>
-            <div id="barr-busqueda" class="barr-busqueda paused">
-                <input type="text" id="caja-texto" name="caja-texto" placeholder="Introduce tu URL...">
-                <button type="button" onclick="functions()" class="btn">ENTER</button>
-            </div>
-            <div id="botones" class="botones paused">
-              <div id="boton-descarga" class="boton-descarga">
-                  <button type="button" onclick="descarga()" class="dwnld">MP4 720p</button>
-              </div>
-              <div id="boton-descarga-360" class="boton-descarga-360">
-                <button type="button" onclick="descarga()" class="dwnld">MP4 360p</button>
-              </div>
-              <div id="boton-descarga-mp3" class="boton-descarga-mp3">
-                <button type="button" onclick="descarga()" class="dwnld">MP3</button>
-              </div>
-            </div>
-              <div id="video" class="video paused">
-                  <iframe id="my-frame" width="480" height="360"></iframe>
-              </div>
-            <script src="main.js"></script>
-        </body>
-    </head>    
-
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>YOUTUBE DOWNLOADER</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link class="style" rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  </head>
+  <body>
+    <div class = "container-principal">
+      <div class = "container-titulo-padre">
+        <h1 class="main-title">LEGAL YOUTUBE DOWNLOADER</h1>
+      </div>
+      <div id="video" class="video paused">
+        <iframe id="my-frame" width="480" height="360"></iframe>
+      </div>
+      <div id="barr-busqueda" class="barr-busqueda paused">
+        <input type="text" id="caja-texto" name="caja-texto" placeholder="Introduce tu URL...">
+        <button id="btn-enter" type="button" class="btn">ENTER</button>
+      </div>
+      <div id="botones" class="botones paused">
+        <div id="boton-descarga" class="boton-descarga">
+          <button id="descarga720" type="button" class="dwnld">MP4 720p</button>
+        </div>
+        <div id="boton-descarga-360" class="boton-descarga-360">
+          <button id="descarga360" type="button" class="dwnld">MP4 360p</button>
+        </div>
+        <div id="boton-descarga-mp3" class="boton-descarga-mp3">
+          <button id="descargamp3" type="button" class="dwnld">MP3</button>
+        </div>
+      </div>
+      
+    <script src="main.js"></script>
+  </div>
+</body>
+</html>

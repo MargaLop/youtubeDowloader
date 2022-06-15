@@ -1,10 +1,9 @@
 // https://www.youtube.com/watch?v=bmfudW7rbG0
 
-const cont = 0;
-const server="127.0.0.1:3000";
+let cont = 0;
 
 function getVideo() {
-  const parmLink = document.getElementById("caja-texto").value.split('=')[1]
+  const parmLink = document.getElementById("caja-texto").value.split("=")[1];
   const link = `https://www.youtube.com/embed/${parmLink}`;
   document.getElementById("my-frame").src = link;
 }
@@ -22,27 +21,21 @@ function anim() {
 }
 
 function functions() {
-  cont++;
+  cont += 1;
   getVideo();
-  if (cont <= 1) {
+  if (cont === 1) {
     anim();
-  }  console.log(cont);
+  }
+  console.log(cont);
 }
 
-function httpGet(theUrl) {
-  const xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", theUrl, false); // false for synchronous request
-  xmlHttp.send(null);
-  return xmlHttp.responseText;
-}
-
-function descarga(){
+function descarga() {
   const paramLink = document.getElementById("caja-texto").value.split("=")[1];
   const dowLink = `/video/${paramLink}`;
   // httpGet()
   fetch(dowLink)
-    .then(resp => resp.blob())
-    .then(blob => {
+    .then((resp) => resp.blob())
+    .then((blob) => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.style.display = "none";
@@ -53,4 +46,20 @@ function descarga(){
       a.click();
       window.URL.revokeObjectURL(url);
     });
-};
+}
+
+document.getElementById("btn-enter").onclick = functions;
+
+["descarga360", "descarga720", "descargamp3"].forEach((id) => {
+  document.getElementById(id).onclick = descarga;
+});
+
+/*
+
+function httpGet(theUrl) {
+  const xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", theUrl, false); // false for synchronous request
+  xmlHttp.send(null);
+  return xmlHttp.responseText;
+}
+*/
