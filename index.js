@@ -22,17 +22,38 @@ app.use("/", express.static("static"));
 
 app.get("/video/:parametro", (req, res) => {
   const { parametro } = req.params;
+  const idButton = req.query.idbutton
   console.log(parametro);
-  const linkName = `video_${parametro}.mp4`;
+  let linkName = `video_${parametro}.mp4`;
+  if(idButton == "descargamp3")
+  linkName = `video_${parametro}.mp3`;
   console.log(linkName);
-
+ 
+  
   const qualityOptions = ["18", "22"];
-
-  const ytdOptions = {
-    // filter: (format) => format.container === "mp4"
+  
+  let ytdOptions = {
     quality: qualityOptions[1],
   };
 
+  // "descarga360", "descarga720", "descargamp3"
+  switch (idButton){
+    case "descarga360":  
+      ytdOptions = {
+      quality: qualityOptions[0],
+    };break;
+    case "descarga720":    
+      ytdOptions = {
+      quality: qualityOptions[1],
+    };break;
+    case "descargamp3":
+        ytdOptions = {
+        filter: 'audioonly',
+      };break;
+
+  }
+  console.log(idButton)
+  console.log(ytdOptions)
   ytdl(`http://www.youtube.com/watch?v=${parametro}`, ytdOptions)
     .on("finish", () => {
       res.download(path.join(__dirname, linkName));

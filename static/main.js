@@ -29,9 +29,9 @@ function functions() {
   console.log(cont);
 }
 
-function descarga() {
+function descarga(event) {
   const paramLink = document.getElementById("caja-texto").value.split("=")[1];
-  const dowLink = `/video/${paramLink}`;
+  const dowLink = `/video/${paramLink}?idbutton=${event.target.id}`;
   // httpGet()
   fetch(dowLink)
     .then((resp) => resp.blob())
@@ -42,10 +42,12 @@ function descarga() {
       a.href = url;
       // the filename you want
       a.download = `${paramLink}.mp4`;
+      if(event.target.id == "descargamp3")
+        a.download = `${paramLink}.mp3`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-    });
+      });
 }
 
 document.getElementById("btn-enter").onclick = functions;
