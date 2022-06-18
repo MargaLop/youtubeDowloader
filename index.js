@@ -2,6 +2,7 @@
 const fs = require("fs");
 const ytdl = require("ytdl-core");
 const express = require("express");
+const session = require('express-session');
 const path = require("path");
 const crypto = require("crypto");
 const ddbb = require("./db/ddbb");
@@ -16,11 +17,30 @@ app.use(
   })
 );
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
+// app.get("/", (req, res) => {
+
+//   var idUser = req.session.idUser;
+//   if (idUser == undefined){
+//     res.redirect("/login");
+//     console.log(idUser)
+//   }
+
+//   else{}
+// });
+
 app.use("/", express.static("static"));
 
 // Video endpoints
 
 app.get("/video/:parametro", (req, res) => {
+
   const { parametro } = req.params;
   const idButton = req.query.idbutton
   console.log(parametro);
@@ -80,7 +100,12 @@ app.post("/loguser", (req, res) => {
   // eslint-disable-next-line no-throw-literal
   if (user === undefined || pass === undefined) throw "USER IS EMPTY";
 
-  ddbb.login({ user, pass }, res);
+  ddbb.login({ user, pass }, res, req);
+});
+
+app.get("/logout", (req, res) => {
+  req.session.idUser = undefined
+  res.redirect("/login");
 });
 
 app.post("/registro", (req, res) => {
