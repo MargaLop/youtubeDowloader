@@ -63,12 +63,12 @@ document.getElementById("log-out").onclick = function(req,res){
 document.getElementById("surprise").onclick = function(){
   window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 }
-
+/*
 var deleteBtn = document.getElementById("delete");
 document.getElementById("delete").onclick = function(){
   deleteBtn.parentNode.removeChild(deleteBtn);
 }
-/*
+
 
 function httpGet(theUrl) {
   const xmlHttp = new XMLHttpRequest();
