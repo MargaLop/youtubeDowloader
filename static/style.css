@@ -21,14 +21,14 @@ input {
 }
 
 .logo{
-    width: 150px;
+    width: 100px;
     height: 100px;
-    margin-top: 50px;
+    margin-top: 20px;
+    padding: 0px 10px;
 }
 
 .container-titulo-padre{
     width: 100%;
-    padding: 10px 20px;
     display: flex;
     justify-content: center;
     
