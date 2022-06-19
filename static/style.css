@@ -1,18 +1,16 @@
 body {
     background: url(img/bg.gif) no-repeat center center fixed;
     background-color: rgb(17, 17, 17);
-    background-size: 100%;
+    background-size: 240%;
     background-repeat: no-repeat;
 }
-
-
 
 input {
     border: none;
     color: rgb(0, 0, 0);
     font-size: 16px;
-    margin-right: 10px;
-    padding: 10px;
+    margin: 4px 5px;
+    width: 350px;
 }
 
 .container-principal{
@@ -42,6 +40,7 @@ input {
 .barr-busqueda {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     -webkit-animation-name: baja-barra;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: initial;
@@ -55,6 +54,8 @@ input {
     font-size: 16px;
     font-weight: 800;
     text-align: center;
+    padding: 10px 30px;
+    margin-left: 5px;
 }
 
 .btn:hover {
@@ -79,9 +80,6 @@ input {
     -webkit-animation-iteration-count: initial;
 }
 
-.my-frame {
-    transform: translate(-50%, -50%);
-}
 
 .video.paused {
     animation-play-state: paused;
@@ -96,22 +94,26 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 15px;
     -webkit-animation-name: botones;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: initial;
 }
 
+
 .boton-descarga {
     opacity: 100%;
-
+    margin: 0px 15px;
 }
 
 .boton-descarga-360 {
     opacity: 100%;
+    margin: 0px 15px;
 }
 
 .boton-descarga-mp3 {
     opacity: 100%;
+    margin: 0px 15px;
 }
 
 .botones.paused {
@@ -130,16 +132,17 @@ input {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-weight: 800;
-    padding: 7px;
-    text-align: center;
     opacity: 100%;
+    padding: 10px 50px;
+    
+    
 }
 
 .dwnld:hover {
     background-color: #ff0000;
 }
-
-/*@media (min-width: 24px) {
+/*
+@media (min-width: 24px) {
     .main-title {
         font-size:  12px;
     }
