@@ -20,6 +20,11 @@ input {
     position: relative;
 }
 
+.logo{
+    width: 150px;
+    height: 100px;
+    margin-top: 50px;
+}
 
 .container-titulo-padre{
     width: 100%;
@@ -94,7 +99,7 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: -50px;
     -webkit-animation-name: botones;
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: initial;
@@ -141,44 +146,18 @@ input {
 .dwnld:hover {
     background-color: #ff0000;
 }
-/*
-@media (min-width: 24px) {
-    .main-title {
-        font-size:  12px;
-    }
-}
 
-@media (min-width: 576px) {
-    .main-title {
-        font-size:  24px;
-    }
-}
 
-@media (min-width: 768px) {
-    .main-title {
-        font-size:  36px;
-    }
-}
-@media (min-width: 992px) {
-    .main-title {
-        font-size:  58px;
-    }
-}
-@media (min-width: 1200px) {
-    .main-title {
-        font-size:  72px;
-    }
-}
 
 @-webkit-keyframes mueve-video {
     from {
-        -webkit-transform: translate(-1000%, -90%);
+        -webkit-transform: translate(-1000%, 0);
         opacity: 100%;
     }
 
     to {
         justify-content: center;
-        -webkit-transform: translate(-60%, -90%);
+        -webkit-transform: translate(0, 0);
         opacity: 100%;
     }
 }
@@ -195,12 +174,11 @@ input {
 
 @-webkit-keyframes baja-barra {
     from {
-        -webkit-transform: translateY(-140px);
+        -webkit-transform: translateY(-160px);
     }
 
     to {
-        -webkit-transform: translateY(230px);
+        -webkit-transform: translateY(60px);
     }
 }
 
-*/
