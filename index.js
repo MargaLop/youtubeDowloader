@@ -99,7 +99,7 @@ app.post("/loguser", (req, res) => {
 
   // eslint-disable-next-line no-throw-literal
   if (user === undefined || pass === undefined) throw "USER IS EMPTY";
-
+  req.session.idUser
   ddbb.login({ user, pass }, res, req);
 });
 

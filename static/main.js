@@ -56,6 +56,10 @@ document.getElementById("btn-enter").onclick = functions;
   document.getElementById(id).onclick = descarga;
 });
 
+document.getElementById("log-out").onclick = function(req,res){
+  res.redirect("/logout");
+}
+
 document.getElementById("surprise").onclick = function(){
   window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 }
