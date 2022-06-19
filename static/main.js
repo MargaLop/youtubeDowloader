@@ -56,6 +56,14 @@ document.getElementById("btn-enter").onclick = functions;
   document.getElementById(id).onclick = descarga;
 });
 
+document.getElementById("surprise").onclick = function(){
+  window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+}
+
+var deleteBtn = document.getElementById("delete");
+document.getElementById("delete").onclick = function(){
+  deleteBtn.parentNode.removeChild(deleteBtn);
+}
 /*
 
 function httpGet(theUrl) {
