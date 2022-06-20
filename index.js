@@ -24,7 +24,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true },
-})
+  })
 );
 
 // app.get("/", (req, res) => {
@@ -44,7 +44,7 @@ app.use("/", express.static("static"));
 
 app.get("/video/:parametro", (req, res) => {
   const { parametro } = req.params;
-  const idButton = req.query.idbutton
+  const idButton = req.query.idbutton;
   console.log(parametro);
   let linkName = `video_${parametro}.mp4`;
   if (idButton === "descargamp3") linkName = `video_${parametro}.mp3`;
@@ -75,8 +75,8 @@ app.get("/video/:parametro", (req, res) => {
       };
       break;
   }
-  console.log(idButton)
-  console.log(ytdOptions)
+  console.log(idButton);
+  console.log(ytdOptions);
   ytdl(`http://www.youtube.com/watch?v=${parametro}`, ytdOptions)
     .on("finish", () => {
       res.download(path.join(__dirname, linkName));
@@ -112,7 +112,8 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-const validateEmail = (email) => String(email)
+const validateEmail = (email) =>
+  String(email)
     .toLowerCase()
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

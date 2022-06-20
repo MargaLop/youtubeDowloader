@@ -42,12 +42,13 @@ function descarga(event) {
       a.href = url;
       // the filename you want
       a.download = `${paramLink}.mp4`;
-      if(event.target.id == "descargamp3")
+      if (event.target.id === "descargamp3") {
         a.download = `${paramLink}.mp3`;
+      }
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-      });
+    });
 }
 
 document.getElementById("btn-enter").onclick = functions;
@@ -56,13 +57,13 @@ document.getElementById("btn-enter").onclick = functions;
   document.getElementById(id).onclick = descarga;
 });
 
-document.getElementById("log-out").onclick = function(req,res){
+document.getElementById("log-out").onclick = function (req, res) {
   res.redirect("/logout");
-}
+};
 
-document.getElementById("surprise").onclick = function(){
+document.getElementById("surprise").onclick = function () {
   window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-}
+};
 /*
 var deleteBtn = document.getElementById("delete");
 document.getElementById("delete").onclick = function(){

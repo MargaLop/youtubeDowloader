@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "set PORT=80&&node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js ."
   },
   "repository": {
     "type": "git",
