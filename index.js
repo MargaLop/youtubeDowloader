@@ -2,7 +2,8 @@
 const fs = require("fs");
 const ytdl = require("ytdl-core");
 const express = require("express");
-const session = require('express-session');
+// eslint-disable-next-line import/no-unresolved
+const session = require("express-session");
 const path = require("path");
 const crypto = require("crypto");
 const ddbb = require("./db/ddbb");
@@ -17,12 +18,14 @@ app.use(
   })
 );
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+})
+);
 
 // app.get("/", (req, res) => {
 
@@ -40,37 +43,37 @@ app.use("/", express.static("static"));
 // Video endpoints
 
 app.get("/video/:parametro", (req, res) => {
-
   const { parametro } = req.params;
   const idButton = req.query.idbutton
   console.log(parametro);
   let linkName = `video_${parametro}.mp4`;
-  if(idButton == "descargamp3")
-  linkName = `video_${parametro}.mp3`;
+  if (idButton === "descargamp3") linkName = `video_${parametro}.mp3`;
   console.log(linkName);
- 
-  
+
   const qualityOptions = ["18", "22"];
-  
+
   let ytdOptions = {
     quality: qualityOptions[1],
   };
 
   // "descarga360", "descarga720", "descargamp3"
-  switch (idButton){
-    case "descarga360":  
+  // eslint-disable-next-line default-case
+  switch (idButton) {
+    case "descarga360":
       ytdOptions = {
-      quality: qualityOptions[0],
-    };break;
-    case "descarga720":    
+        quality: qualityOptions[0],
+      };
+      break;
+    case "descarga720":
       ytdOptions = {
-      quality: qualityOptions[1],
-    };break;
+        quality: qualityOptions[1],
+      };
+      break;
     case "descargamp3":
-        ytdOptions = {
-        filter: 'audioonly',
-      };break;
-
+      ytdOptions = {
+        filter: "audioonly",
+      };
+      break;
   }
   console.log(idButton)
   console.log(ytdOptions)
@@ -99,14 +102,21 @@ app.post("/loguser", (req, res) => {
 
   // eslint-disable-next-line no-throw-literal
   if (user === undefined || pass === undefined) throw "USER IS EMPTY";
-  req.session.idUser
+  // eslint-disable-next-line no-unused-expressions
+  req.session.idUser;
   ddbb.login({ user, pass }, res, req);
 });
 
 app.get("/logout", (req, res) => {
-  req.session.idUser = undefined
+  req.session.idUser = undefined;
   res.redirect("/login");
 });
+
+const validateEmail = (email) => String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
 
 app.post("/registro", (req, res) => {
   const { nombre, apellidos, email, cumple, user, pass } = req.body;
@@ -114,7 +124,7 @@ app.post("/registro", (req, res) => {
   const newUser = {
     nombre: nombre,
     apellidos: apellidos,
-    mail: email,
+    mail: validateEmail(email),
     birth_date: cumple,
     user: user,
     pass: pass,
